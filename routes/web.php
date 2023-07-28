@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Wallet\WalletController;
+use App\Http\Controllers\Wallet\WalletDeleteController;
+use App\Http\Controllers\Wallet\WalletEditController;
+use App\Http\Controllers\Wallet\WalletStoreController;
+use App\Http\Controllers\Wallet\WalletUpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +27,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Wallet
+Route::get('/wallet', WalletController::class)->name('wallets.index');
+Route::get('/addwallet', [WalletController::class, 'edit'])->name('wallets.partials.add-wallet');
+Route::post('wallet', WalletStoreController::class)->name('wallet.store');
+Route::get('wallet/{id}/edit', WalletEditController::class)->name('wallets.partials.edit-wallet');
+Route::put('wallet/{id}', WalletUpdateController::class)->name('wallet.update');
+Route::delete('wallet/{id}', WalletDeleteController::class)->name('wallet.destroy');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
