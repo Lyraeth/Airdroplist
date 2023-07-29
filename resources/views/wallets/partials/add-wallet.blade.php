@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    Edit Your Details Address :
+                    Add Your Address Details :
                 </div>
                 <hr>
 
@@ -29,7 +29,10 @@
                                     id="exampleFormControlInput1" placeholder="Metamask, etc.">
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Address</label>
                                 <input type="text" name="wallet_address" class="form-control mb-4"
-                                    id="exampleFormControlInput1" placeholder="0x" required>
+                                    id="exampleFormControlInput1" placeholder="0x or Email" required>
+                                <div id="passwordHelpBlock" class="form-text  mb-4">
+                                    Your Wallet Address or Your Email or Both
+                                </div>
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Locations</label>
                                 <select name="wallet_location" class="form-select" aria-label="Default select example"
                                     required>

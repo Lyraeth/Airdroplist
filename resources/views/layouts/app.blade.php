@@ -8,13 +8,17 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    {{-- Favicons --}}
+    <link type="image/png" sizes="96x96" rel="icon" href="{{ asset('favicons.ico') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{-- Bootstrap CSS & Fontawasome CSS --}}
+    {{-- Bootstrap CSS & Fontawasome CSS & Data aos --}}
     <link rel="stylesheet" href="{{ asset('assets/Bootstrap-5.3/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Fontawasome-6.3/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/Data-aos/src/sass/aos.scss') }}">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -42,6 +46,12 @@
     {{-- Bootstraps JS & Fontawasome JS --}}
     <script src="{{ asset('assets/Bootstrap-5.3/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/Fontawasome-6.3/js/all.js') }}"></script>
+    <script src="{{ asset('assets/Data-aos/src/js/aos.js') }}"></script>
+
+    {{-- Data-AOS --}}
+    <script>
+        AOS.init();
+    </script>
 
     {{-- Bootstrap Validation --}}
     <script>
@@ -65,6 +75,7 @@
             })
         })()
     </script>
+
 </body>
 
 </html>

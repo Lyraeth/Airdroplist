@@ -16,8 +16,6 @@ class WalletEditController extends Controller
     {
         $wallets = Wallet::find($id);
 
-        $this->authorize('update', $wallets);
-
         return view('wallets.partials.edit-wallet', [
             'wallets' => Wallet::find($id),
         ]);

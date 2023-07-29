@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Airdrop\AirdropController;
+use App\Http\Controllers\Airdrop\AirdropDeleteController;
+use App\Http\Controllers\Airdrop\AirdropEditController;
+use App\Http\Controllers\Airdrop\AirdropStoreController;
+use App\Http\Controllers\Airdrop\AirdropUpdateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Wallet\WalletController;
 use App\Http\Controllers\Wallet\WalletDeleteController;
@@ -34,6 +39,13 @@ Route::post('wallet', WalletStoreController::class)->name('wallet.store');
 Route::get('wallet/{id}/edit', WalletEditController::class)->name('wallets.partials.edit-wallet');
 Route::put('wallet/{id}', WalletUpdateController::class)->name('wallet.update');
 Route::delete('wallet/{id}', WalletDeleteController::class)->name('wallet.destroy');
+
+// Airdrop
+Route::get('/airdrop', AirdropController::class)->name('airdrops.index');
+Route::get('/addairdrop', [AirdropController::class, 'add'])->name('airdrop.partials.add-airdrops');
+Route::get('/airdrop/{id}/view', [AirdropController::class, 'view'])->name('airdrops.view');
+Route::post('/airdrop', AirdropStoreController::class)->name('airdrops.store');
+Route::delete('airdrops/{id}', AirdropDeleteController::class)->name('airdrops.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -15,7 +15,7 @@ class WalletController extends Controller
     public function __invoke(): View
     {
         return view('wallets.index', [
-            'wallets' => Wallet::latest('id')->get(),
+            'wallets' => Wallet::get(),
         ]);
     }
 

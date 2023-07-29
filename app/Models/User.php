@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Wallet::class);
     }
+
+    public function airdrops(): HasMany
+    {
+        return $this->hasMany(Airdrop::class);
+    }
 }
