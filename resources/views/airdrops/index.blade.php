@@ -59,11 +59,12 @@
                                                             <div class="col">
                                                                 <form
                                                                     action="{{ route('airdrops.destroy', $airdrop->id) }}"
+                                                                    id="deleteFormAirdrop{{ $airdrop->id }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="submit"
-                                                                        class="btn btn-error btn-sm"><i
+                                                                    <button type="button" class="btn btn-error btn-sm"
+                                                                        onclick="confirmDeleteAirdrop({{ $airdrop->id }})"><i
                                                                             class="fa-solid fa-trash-can"></i></button>
                                                                 </form>
                                                             </div>

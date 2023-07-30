@@ -76,6 +76,26 @@
         })()
     </script>
 
+    {{-- Confirm Delete Wallet --}}
+    <script>
+        function confirmDeleteWallet(walletId) {
+            if (confirm("Are you sure want to delete this wallet?")) {
+                // Jika pengguna mengklik "OK" dalam konfirmasi, submit form dengan ID yang sesuai
+                document.getElementById("deleteFormWallet" + walletId).submit();
+            }
+        }
+    </script>
+
+    {{-- Confirm Delete Airdrops --}}
+    <script>
+        function confirmDeleteAirdrop(airdropId) {
+            if (confirm("Are you sure want to delete this airdrop?")) {
+                // Jika pengguna mengklik "OK" dalam konfirmasi, submit form dengan ID yang sesuai
+                document.getElementById("deleteFormAirdrop" + airdropId).submit();
+            }
+        }
+    </script>
+
 </body>
 
 </html>

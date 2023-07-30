@@ -21,22 +21,14 @@
                             @method('put')
                             <div class="mb-6 mx-4">
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Name</label>
-                                <input type="text" name="wallet_name" class="form-control"
-                                    id="exampleFormControlInput1" value="{{ $wallets->wallet_name }}">
-                                <div id="passwordHelpBlock" class="form-text  mb-4">
-                                    Your wallet name is whatever you want
-                                </div>
+                                <input type="text" name="wallet_name" class="form-control mb-4"
+                                    id="exampleFormControlInput1" value="{{ $wallets->wallet_name }}" required>
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Application</label>
                                 <input type="text" name="wallet_application" class="form-control mb-4"
-                                    id="exampleFormControlInput1" placeholder="Metamask, etc."
-                                    value="{{ $wallets->wallet_application }}">
+                                    id="exampleFormControlInput1" value="{{ $wallets->wallet_application }}" required>
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Address</label>
                                 <input type="text" name="wallet_address" class="form-control mb-4"
-                                    id="exampleFormControlInput1" placeholder="0x or Email"
-                                    value="{{ $wallets->wallet_address }}">
-                                <div id="passwordHelpBlock" class="form-text  mb-4">
-                                    Your Wallet Address or Your Email or Both
-                                </div>
+                                    id="exampleFormControlInput1" value="{{ $wallets->wallet_address }}" required>
                                 <label for="exampleFormControlInput1" class="form-label">Wallet Locations</label>
                                 <select name="wallet_location" class="form-select" aria-label="Default select example"
                                     required>

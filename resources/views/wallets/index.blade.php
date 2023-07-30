@@ -12,7 +12,7 @@
                     Your Wallet Detail :
                 </div>
 
-                <a class="btn btn-success mx-6" href="{{ route('wallets.partials.add-wallet') }}">
+                <a class="btn btn-accent mx-6" href="{{ route('wallets.partials.add-wallet') }}">
                     Add Wallet
                 </a>
 
@@ -26,46 +26,55 @@
                                 <th>Application Wallet</th>
                                 <th>Address Wallet</th>
                                 <th>Location Wallet</th>
-                                <th>Action</th>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($wallets as $wallet)
-                                <tr class="text-center">
-                                    <th>{{ $no++ }}</th>
-                                    <th>{{ $wallet->wallet_name }}</th>
-                                    <th>{{ $wallet->wallet_application }}</th>
-                                    <th>{{ $wallet->wallet_address }}</th>
-                                    <th>{{ $wallet->wallet_location }}</th>
-                                    <th>
-                                        <div class="row">
-                                            <div class="col">
+                                @foreach ($wallets as $wallet)
+                                    @if ($user->id == $wallet->user_id)
+                                        <th>Action</th>
+                                    @break
+                                @endif
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($wallets as $wallet)
+                            <tr class="text-center">
+                                <th>{{ $no++ }}</th>
+                                <th>{{ $wallet->wallet_name }}</th>
+                                <th>{{ $wallet->wallet_application }}</th>
+                                <th>{{ $wallet->wallet_address }}</th>
+                                <th>{{ $wallet->wallet_location }}</th>
+                                <th>
+                                    <div class="row">
+                                        <div class="col">
+                                            @can('update', $wallet)
                                                 <a href="{{ route('wallets.partials.edit-wallet', $wallet->id) }}"
                                                     type="button" class="btn btn-success btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                            </div>
-                                            <div class="col">
+                                            @endcan
+                                        </div>
+                                        <div class="col">
+                                            @can('delete', $wallet)
                                                 <form action="{{ route('wallet.destroy', $wallet->id) }}"
-                                                    method="post">
+                                                    id="deleteFormWallet{{ $wallet->id }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-error btn-sm"><i
+                                                    <button type="button" class="btn btn-error btn-sm"
+                                                        onclick="confirmDeleteWallet({{ $wallet->id }})"><i
                                                             class="fa-solid fa-trash-can"></i></button>
                                                 </form>
-                                            </div>
+                                            @endcan
                                         </div>
-                                    </th>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                    </div>
+                                </th>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+</div>
 </x-app-layout>
