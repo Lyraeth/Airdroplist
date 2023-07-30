@@ -12,7 +12,7 @@
                     Your Airdrop List :
                 </div>
 
-                <a class="btn btn-success mx-6" href="{{ route('airdrop.partials.add-airdrops') }}">
+                <a class="btn btn-accent mx-6" href="{{ route('airdrop.partials.add-airdrops') }}">
                     Add Airdrops
                 </a>
 
@@ -30,8 +30,8 @@
                                                 <th>Wallet Address / Email</th>
                                                 <th>Link Airdrop</th>
                                                 <th>Status</th>
-                                                <th>Post Date</th>
-                                                <th>Done Date</th>
+                                                {{-- <th>Post Date</th> --}}
+                                                {{-- <th>Done Date</th> --}}
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -46,8 +46,8 @@
                                                     <th>{{ $airdrop->wallets->wallet_address }}</th>
                                                     <th>{{ $airdrop->link_airdrops }}</th>
                                                     <th>{{ $airdrop->status_airdrops }}</th>
-                                                    <th>{{ $airdrop->postdate_airdrops }}</th>
-                                                    <th>{{ $airdrop->donedate_airdrops }}</th>
+                                                    {{-- <th>{{ $airdrop->postdate_airdrops }}</th> --}}
+                                                    {{-- <th>{{ $airdrop->donedate_airdrops }}</th> --}}
                                                     <th>
                                                         <div class="row">
                                                             <div class="col">

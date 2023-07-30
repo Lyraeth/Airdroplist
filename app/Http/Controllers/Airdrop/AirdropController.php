@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Airdrop;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class AirdropController extends Controller
@@ -15,8 +16,12 @@ class AirdropController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $user = Auth::user();
+        $airdrops = $user->airdrops; // Mengambil semua airdrops yang terkait dengan user yang sedang login
+
         return view('airdrops.index', [
-            'airdrops' => Airdrop::get(),
+            'airdrops' => $airdrops,
+            'user' => $user,
         ]);
     }
     public function add(): View
