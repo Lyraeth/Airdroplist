@@ -16,60 +16,69 @@
                     Add Wallet
                 </a>
 
-                <div class="overflow-x-auto mt-4">
-                    <table class="table">
-                        <!-- head -->
-                        <thead>
-                            <tr class="text-center text-gray-500">
-                                <th>No</th>
-                                <th>Name Wallet</th>
-                                <th>Application Wallet</th>
-                                <th>Address Wallet</th>
-                                <th>Location Wallet</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($wallets as $wallet)
-                                <tr class="text-center">
-                                    <th>{{ $no++ }}</th>
-                                    <th>{{ $wallet->wallet_name }}</th>
-                                    <th>{{ $wallet->wallet_application }}</th>
-                                    <th>{{ $wallet->wallet_address }}</th>
-                                    <th>{{ $wallet->wallet_location }}</th>
-                                    <th>
-                                        <div class="row">
-                                            <div class="col">
-                                                @can('update', $wallet)
-                                                    <a href="{{ route('wallets.partials.edit-wallet', $wallet->id) }}"
-                                                        type="button" class="btn btn-success btn-sm">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                @endcan
-                                            </div>
-                                            <div class="col">
-                                                @can('delete', $wallet)
-                                                    <form action="{{ route('wallet.destroy', $wallet->id) }}"
-                                                        id="deleteFormWallet{{ $wallet->id }}" method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="button" class="btn btn-error btn-sm"
-                                                            onclick="confirmDeleteWallet({{ $wallet->id }})">
-                                                            <i class="fa-solid fa-trash-can"></i>
-                                                        </button>
-                                                    </form>
-                                                @endcan
-                                            </div>
-                                        </div>
-                                    </th>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                <section class="ftco-section mt-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-wrap">
+                                    <table class="table table-responsive-xl">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>No</th>
+                                                <th>Name Wallet</th>
+                                                <th>Application Wallet</th>
+                                                <th>Address Wallet</th>
+                                                <th>Location Wallet</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $no = 1;
+                                            @endphp
+                                            @foreach ($wallets as $wallet)
+                                                <tr class="text-center">
+                                                    <th>{{ $no++ }}</th>
+                                                    <th>{{ $wallet->wallet_name }}</th>
+                                                    <th>{{ $wallet->wallet_application }}</th>
+                                                    <th>{{ $wallet->wallet_address }}</th>
+                                                    <th>{{ $wallet->wallet_location }}</th>
+                                                    <th>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                @can('update', $wallet)
+                                                                    <a href="{{ route('wallets.partials.edit-wallet', $wallet->id) }}"
+                                                                        type="button" class="btn btn-success btn-sm">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>
+                                                                @endcan
+                                                            </div>
+                                                            <div class="col">
+                                                                @can('delete', $wallet)
+                                                                    <form
+                                                                        action="{{ route('wallet.destroy', $wallet->id) }}"
+                                                                        id="deleteFormWallet{{ $wallet->id }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="button" class="btn btn-error btn-sm"
+                                                                            onclick="confirmDeleteWallet({{ $wallet->id }})">
+                                                                            <i class="fa-solid fa-trash-can"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                @endcan
+                                                            </div>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

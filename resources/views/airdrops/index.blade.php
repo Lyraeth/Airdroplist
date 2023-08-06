@@ -64,8 +64,10 @@
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="button" class="btn btn-error btn-sm"
-                                                                        onclick="confirmDeleteAirdrop({{ $airdrop->id }})"><i
-                                                                            class="fa-solid fa-trash-can"></i></button>
+                                                                        onclick="confirmDeleteAirdrop({{ $airdrop->id }})">
+                                                                        <i class="fa-solid fa-trash-can">
+                                                                        </i>
+                                                                    </button>
                                                                 </form>
                                                             </div>
                                                         </div>

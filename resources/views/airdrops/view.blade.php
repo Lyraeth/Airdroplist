@@ -14,22 +14,21 @@
                 <hr>
 
                 <div class="p-6 text-gray-900">
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Name :
-                        {{ $airdrops->name_airdrops }}</label><br>
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Wallet :
-                        {{ $airdrops->wallets->wallet_address }}</label><br>
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Link :
-                        <a class="link link-hover text-green-900" href="https://{{ $airdrops->link_airdrops }}"
-                            target="_blank">{{ $airdrops->link_airdrops }}</a>
-                    </label><br>
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Status :
-                        {{ $airdrops->status_airdrops }}</label><br>
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Post Date :
-                        {{ $airdrops->postdate_airdrops }}</label><br>
-                    <label for="exampleFormControlInput1" class="form-label mb-4">Airdrop Done Date :
-                        {{ $airdrops->donedate_airdrops }}</label><br>
-                    <label for="exampleFormControlInput1" class="form-label">Airdrop Notes :
-                        {{ $airdrops->extra_airdrops }}</label>
+                    <label for="exampleFormControlInput1" class="form-label">Name Project :</label>
+                    <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
+                        value="{{ $airdrops->name_airdrops }}" disabled>
+                    <label for="exampleFormControlInput1" class="form-label">Wallet Address :</label>
+                    <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
+                        value="{{ $airdrops->wallets->wallet_address }}" disabled>
+                    <label for="exampleFormControlInput1" class="form-label">Link Project / Post Telegram :</label>
+                    <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
+                        value="{{ $airdrops->link_airdrops }}" disabled>
+                    <label for="exampleFormControlInput1" class="form-label">Status :</label>
+                    <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
+                        value="{{ $airdrops->status_airdrops }}" disabled>
+                    <label for="exampleFormControlInput1" class="form-label">Airdrop Notes :</label>
+                    <textarea type="text" class="form-control mb-4" id="exampleFormControlInput1" disabled> {{ $airdrops->extra_airdrops }}
+                    </textarea>
                 </div>
             </div>
         </div>

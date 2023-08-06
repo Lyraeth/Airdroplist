@@ -33,19 +33,23 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Wallet
-Route::get('/wallet', WalletController::class)->name('wallets.index');
-Route::get('/addwallet', [WalletController::class, 'edit'])->name('wallets.partials.add-wallet');
-Route::post('wallet', WalletStoreController::class)->name('wallet.store');
-Route::get('wallet/{id}/edit', WalletEditController::class)->name('wallets.partials.edit-wallet');
-Route::put('wallet/{id}', WalletUpdateController::class)->name('wallet.update');
-Route::delete('wallet/{id}', WalletDeleteController::class)->name('wallet.destroy');
+Route::middleware('auth')->group(function () {
+    Route::get('/wallet', WalletController::class)->name('wallets.index');
+    Route::get('/addwallet', [WalletController::class, 'edit'])->name('wallets.partials.add-wallet');
+    Route::post('wallet', WalletStoreController::class)->name('wallet.store');
+    Route::get('wallet/{id}/edit', WalletEditController::class)->name('wallets.partials.edit-wallet');
+    Route::put('wallet/{id}', WalletUpdateController::class)->name('wallet.update');
+    Route::delete('wallet/{id}', WalletDeleteController::class)->name('wallet.destroy');
+});
 
 // Airdrop
-Route::get('/airdrop', AirdropController::class)->name('airdrops.index');
-Route::get('/addairdrop', [AirdropController::class, 'add'])->name('airdrop.partials.add-airdrops');
-Route::get('/airdrop/{id}/view', [AirdropController::class, 'view'])->name('airdrops.view');
-Route::post('/airdrop', AirdropStoreController::class)->name('airdrops.store');
-Route::delete('airdrops/{id}', AirdropDeleteController::class)->name('airdrops.destroy');
+Route::middleware('auth')->group(function () {
+    Route::get('/airdrop', AirdropController::class)->name('airdrops.index');
+    Route::get('/addairdrop', [AirdropController::class, 'add'])->name('airdrop.partials.add-airdrops');
+    Route::get('/airdrop/{id}/view', [AirdropController::class, 'view'])->name('airdrops.view');
+    Route::post('/airdrop', AirdropStoreController::class)->name('airdrops.store');
+    Route::delete('airdrops/{id}', AirdropDeleteController::class)->name('airdrops.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

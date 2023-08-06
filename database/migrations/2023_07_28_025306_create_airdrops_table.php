@@ -17,8 +17,6 @@ return new class extends Migration {
             $table->foreignId('wallets_id')->constrained();
             $table->string('link_airdrops');
             $table->string('status_airdrops');
-            $table->date('postdate_airdrops');
-            $table->date('donedate_aidrops');
             $table->string('extra_airdrops');
             $table->timestamps();
         });
