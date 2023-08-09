@@ -20,9 +20,12 @@
                     <label for="exampleFormControlInput1" class="form-label">Wallet Address :</label>
                     <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
                         value="{{ $airdrops->wallets->wallet_address }}" disabled>
-                    <label for="exampleFormControlInput1" class="form-label">Link Project / Post Telegram :</label>
-                    <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
-                        value="{{ $airdrops->link_airdrops }}" disabled>
+
+                    <label for="exampleFormControlInput1" class="form-label mb-4">Link Project / Post Telegram :
+                        <a class="link link-hover" href="{{ $airdrops->link_airdrops }}"
+                            target="_blank">{{ $airdrops->link_airdrops }}
+                        </a>
+                    </label><br>
                     <label for="exampleFormControlInput1" class="form-label">Status :</label>
                     <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
                         value="{{ $airdrops->status_airdrops }}" disabled>

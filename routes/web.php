@@ -5,6 +5,7 @@ use App\Http\Controllers\Airdrop\AirdropDeleteController;
 use App\Http\Controllers\Airdrop\AirdropEditController;
 use App\Http\Controllers\Airdrop\AirdropStoreController;
 use App\Http\Controllers\Airdrop\AirdropUpdateController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Wallet\WalletController;
 use App\Http\Controllers\Wallet\WalletDeleteController;
@@ -28,9 +29,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 // Wallet
 Route::middleware('auth')->group(function () {
