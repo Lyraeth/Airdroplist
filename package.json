@@ -18,6 +18,6 @@
     },
     "dependencies": {
         "aos": "^2.3.4",
-        "datatables.net-dt": "^1.13.5"
+        "datatables.net-dt": "^1.13.6"
     }
 }

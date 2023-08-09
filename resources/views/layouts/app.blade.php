@@ -15,10 +15,11 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{-- Bootstrap CSS & Fontawasome CSS & Data aos --}}
+    {{-- Bootstrap CSS & Fontawasome CSS & Data AOS & Datatables --}}
     <link rel="stylesheet" href="{{ asset('assets/Bootstrap-5.3/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Fontawasome-6.3/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Data-aos/src/sass/aos.scss') }}">
+    <link rel="stylesheet" href="{{ asset('assets/DataTables/datatables.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -43,10 +44,11 @@
         </main>
     </div>
 
-    {{-- Bootstraps JS & Fontawasome JS --}}
+    {{-- Bootstraps JS & Fontawasome JS & Data AOS & Datatables --}}
     <script src="{{ asset('assets/Bootstrap-5.3/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/Fontawasome-6.3/js/all.js') }}"></script>
     <script src="{{ asset('assets/Data-aos/src/js/aos.js') }}"></script>
+    <script src="{{ asset('assets/DataTables/datatables.js') }}"></script>
 
     {{-- Data-AOS --}}
     <script>
