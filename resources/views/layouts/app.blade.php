@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/Fontawasome-6.3/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/Data-aos/src/sass/aos.scss') }}">
     <link rel="stylesheet" href="{{ asset('assets/DataTables/datatables.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -49,6 +50,10 @@
     <script src="{{ asset('assets/Fontawasome-6.3/js/all.js') }}"></script>
     <script src="{{ asset('assets/Data-aos/src/js/aos.js') }}"></script>
     <script src="{{ asset('assets/DataTables/datatables.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>new DataTable('#example');</script>
+
 
     {{-- Data-AOS --}}
     <script>

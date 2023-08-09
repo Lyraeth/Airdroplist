@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-wrap">
-                                    <table class="table table-responsive-xl">
+                                    <table id="example" class="display" style="width:100%">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>No</th>
