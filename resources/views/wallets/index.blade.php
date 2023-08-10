@@ -20,16 +20,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap">
+                                <div class="table-wrap my-4">
                                     <table id="example" class="display" style="width:100%">
                                         <thead>
-                                            <tr class="text-center">
-                                                <th>No</th>
-                                                <th>Name Wallet</th>
-                                                <th>Application Wallet</th>
-                                                <th>Address Wallet</th>
-                                                <th>Location Wallet</th>
-                                                <th>Action</th>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Name Wallet</th>
+                                                <th class="text-center">Application Wallet</th>
+                                                <th class="text-center">Address Wallet</th>
+                                                <th class="text-center">Location Wallet</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -37,7 +37,7 @@
                                                 $no = 1;
                                             @endphp
                                             @foreach ($wallets as $wallet)
-                                                <tr class="text-center">
+                                                <tr>
                                                     <th>{{ $no++ }}</th>
                                                     <th>{{ $wallet->wallet_name }}</th>
                                                     <th>{{ $wallet->wallet_application }}</th>

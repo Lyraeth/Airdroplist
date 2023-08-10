@@ -21,18 +21,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap">
+                                <div class="table-wrap my-4">
                                     <table id="example" class="display" style="width:100%">
                                         <thead>
-                                            <tr class="text-center">
-                                                <th>No</th>
-                                                <th>Airdrop Name</th>
-                                                <th>Wallet Address / Email</th>
-                                                <th>Link Airdrop</th>
-                                                <th>Status</th>
-                                                {{-- <th>Post Date</th> --}}
-                                                {{-- <th>Done Date</th> --}}
-                                                <th>Actions</th>
+                                            <tr>
+                                                <th class="text-center">No</th>
+                                                <th class="text-center">Airdrop Name</th>
+                                                <th class="text-center">Wallet Address / Email</th>
+                                                <th class="text-center">Link Airdrop</th>
+                                                <th class="text-center">Status</th>
+                                                <th class="text-center">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -40,7 +38,7 @@
                                                 $no = 1;
                                             @endphp
                                             @foreach ($airdrops as $airdrop)
-                                                <tr class="text-center">
+                                                <tr>
                                                     <th>{{ $no++ }}</th>
                                                     <th>{{ $airdrop->name_airdrops }}</th>
                                                     <th>{{ $airdrop->wallets->wallet_address }}</th>
