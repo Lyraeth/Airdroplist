@@ -18,6 +18,8 @@ class DashboardController extends Controller
         $airdrops = Airdrop::count();
         $wallets = Wallet::count();
 
-        return view('dashboard', compact('airdrops', 'wallets'));
+        $dataairdrops = Airdrop::all();
+
+        return view('dashboard', compact('airdrops', 'wallets', 'dataairdrops'));
     }
 }
