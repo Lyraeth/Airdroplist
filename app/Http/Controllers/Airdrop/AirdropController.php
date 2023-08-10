@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Airdrop;
 
 use App\Http\Controllers\Controller;
 use App\Models\Airdrop;
+use App\Models\Status;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,7 @@ class AirdropController extends Controller
     {
         return view('airdrops.partials.add-airdrops', [
             'wallets' => Wallet::all(),
+            'statuses' => Status::all(),
         ]);
     }
 

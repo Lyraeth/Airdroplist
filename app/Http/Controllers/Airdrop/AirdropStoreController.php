@@ -21,7 +21,7 @@ class AirdropStoreController extends Controller
             'name_airdrops' => request('name_airdrops'),
             'wallets_id' => request('wallets_id'),
             'link_airdrops' => request('link_airdrops'),
-            'status_airdrops' => request('status_airdrops'),
+            'status_id' => request('status_id'),
             'extra_airdrops' => request('extra_airdrops')
         ]);
 

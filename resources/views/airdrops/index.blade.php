@@ -15,13 +15,11 @@
                 <a class="btn btn-accent mx-6" href="{{ route('airdrop.partials.add-airdrops') }}">
                     Add Airdrops
                 </a>
-
-
                 <section class="ftco-section mt-4">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap">
+                                <div class="table-wrap my-4">
                                     <table id="example" class="display text-center" style="width:100%">
                                         <thead>
                                             <tr>
@@ -46,9 +44,7 @@
                                                         <a
                                                             href={{ $airdrop->link_airdrops }}>{{ $airdrop->link_airdrops }}</a>
                                                     </th>
-                                                    <th>{{ $airdrop->status_airdrops }}</th>
-                                                    {{-- <th>{{ $airdrop->postdate_airdrops }}</th> --}}
-                                                    {{-- <th>{{ $airdrop->donedate_airdrops }}</th> --}}
+                                                    <th>{{ $airdrop->status->status_name }}</th>
                                                     <th>
                                                         <div class="row">
                                                             <div class="col">

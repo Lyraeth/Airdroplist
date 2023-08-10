@@ -40,28 +40,14 @@
                                 <div id="passwordHelpBlock" class="form-text mb-4">
                                     Link telegram post or website
                                 </div>
-                                <label for="exampleFormControlInput1" class="form-label">Status Airdrops</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" value="Done" type="radio" name="status_airdrops"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Done
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" value="On Progress" type="radio"
-                                        name="status_airdrops" id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        On Progress
-                                    </label>
-                                </div>
-                                <div class="form-check mb-4">
-                                    <input class="form-check-input" value="To Do" type="radio" name="status_airdrops"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        To Do
-                                    </label>
-                                </div>
+                                <label for="exampleFormControlInput1" class="form-label">Airdrops Status</label>
+                                <select name="status_id" class="form-select mb-4" aria-label="Default select example"
+                                    required>
+                                    <option></option>
+                                    @foreach ($statuses as $status)
+                                        <option value="{{ $status->id }}">{{ $status->status_name }}</option>
+                                    @endforeach
+                                </select>
                                 <label for="exampleFormControlInput1" class="form-label">Extra</label>
                                 <textarea type="text" class="form-control mb-4" name="extra_airdrops" id="exampleFormControlInput1" required></textarea>
                             </div>

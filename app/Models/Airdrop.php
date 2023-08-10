@@ -18,4 +18,9 @@ class Airdrop extends Model
     {
         return $this->belongsTo(Wallet::class);
     }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

@@ -10,14 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('airdrops', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->string('name_airdrops');
-            $table->foreignId('wallets_id')->constrained();
-            $table->string('link_airdrops');
-            $table->string('status_airdrops');
-            $table->string('extra_airdrops');
+            $table->string('status_name');
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('airdrops');
+        Schema::dropIfExists('statuses');
     }
 };

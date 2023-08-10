@@ -28,7 +28,7 @@
                     </label><br>
                     <label for="exampleFormControlInput1" class="form-label">Status :</label>
                     <input type="text" class="form-control mb-4" id="exampleFormControlInput1"
-                        value="{{ $airdrops->status_airdrops }}" disabled>
+                        value="{{ $airdrops->status->status_name }}" disabled>
                     <label for="exampleFormControlInput1" class="form-label">Airdrop Notes :</label>
                     <textarea type="text" class="form-control mb-4" id="exampleFormControlInput1" disabled> {{ $airdrops->extra_airdrops }}
                     </textarea>

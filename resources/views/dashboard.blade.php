@@ -11,8 +11,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="card-title">Welcome To Dashboard {{ Auth::user()->name }}!</div>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <div class="card-title">Welcome to Dashboard, {{ Auth::user()->name }}!</div>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
                             <div class="col mt-4">
                                 <a href="#" class="btn btn-accent">Profile Information</a>
                             </div>
@@ -33,7 +34,9 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="fs-6 fw-bold text-primary">Total Airdrops</div>
+                                {{-- @can('view', $airdrops) --}}
                                 <div class="fs-3 mb-0 fw-bold text-muted">{{ $airdrops }}</div>
+                                {{-- @endcan --}}
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-droplet fa-2x text-muted"></i>
@@ -43,7 +46,8 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card shadow h-100 py-2" style="border-left-width: 5px; border-left-color: rgb(137, 201, 137)">
+                <div class="card shadow h-100 py-2"
+                    style="border-left-width: 5px; border-left-color: rgb(137, 201, 137)">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -58,18 +62,26 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card shadow h-100 py-2" style="border-left-width: 5px; border-left-color: rgb(186, 52, 186)">
+                <div class="card shadow h-100 py-2"
+                    style="border-left-width: 5px; border-left-color: rgb(186, 52, 186)">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="fs-6 fw-bold text-primary">Task</div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="fs-3 mb-0 fw-bold text-muted">50%</div>
+                                        @php
+                                            $no = 100;
+                                            $total = ($totaldone / $airdrops) * $no;
+                                            $formattedTotal = number_format($total, 1);
+                                        @endphp
+                                        <div class="fs-3 mb-0 fw-bold text-muted">{{ $formattedTotal }}%</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress">
-                                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: {{ $formattedTotal }}%" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +99,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="fs-6 fw-bold text-primary">Pending Task</div>
-                                <div class="fs-3 mb-0 fw-bold text-muted">4</div>
+                                <div class="fs-3 mb-0 fw-bold text-muted">{{ $pendingtask }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-hourglass-half fa-2x text-muted"></i>
@@ -96,23 +108,25 @@
                     </div>
                 </div>
             </div>
-            <div class="card shadow h-100 py-2" style="border-left-width: 5px; border-left-color: yellow">
+            <div class="card shadow h-100 py-2 mb-4" style="border-left-width: 5px; border-left-color: yellow">
                 <div class="card-body">
                     <div class="col mr-2 mb-4">
                         <div class="fs-4 fw-bold">Your Kindly Reminder :)</div>
                     </div>
-                    <div class="table-wrap">
+                    <hr>
+                    <div class="table-wrap mt-4">
                         <table id="example" class="display text-center" style="width:100%">
                             <thead>
                                 <tr class="text-center">
-                                    <th>No</th>
-                                    <th>Airdrop Name</th>
-                                    <th>Wallet Address / Email</th>
-                                    <th>Link Airdrop</th>
-                                    <th>Status</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Airdrop Name</th>
+                                    <th class="text-center">Wallet Address / Email</th>
+                                    <th class="text-center">Link Airdrop</th>
+                                    <th class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {{-- @can('view', $airdrops) --}}
                                 @php
                                     $no = 1;
                                 @endphp
@@ -122,12 +136,13 @@
                                         <th>{{ $airdrop->name_airdrops }}</th>
                                         <th>{{ $airdrop->wallets->wallet_address }}</th>
                                         <th>
-                                            <a href={{ $airdrop->link_airdrops }}>{{ $airdrop->link_airdrops }}</a></th>
-                                        <th>{{ $airdrop->status_airdrops }}</th>
-                                        {{-- <th>{{ $airdrop->postdate_airdrops }}</th> --}}
-                                        {{-- <th>{{ $airdrop->donedate_airdrops }}</th> --}}
+                                            <a target="_blank"
+                                                href={{ $airdrop->link_airdrops }}>{{ $airdrop->link_airdrops }}</a>
+                                        </th>
+                                        <th>{{ $airdrop->status->status_name }}</th>
                                     </tr>
                                 @endforeach
+                                {{-- @endcan --}}
                             </tbody>
                         </table>
                     </div>
