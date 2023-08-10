@@ -72,9 +72,14 @@
                                     <div class="col-auto">
                                         @php
                                             $no = 100;
-                                            $total = ($totaldone / $airdrops) * $no;
-                                            $formattedTotal = number_format($total, 1);
+                                            $formattedTotal = 0; // Nilai default jika tidak ada data airdrop
+                                            
+                                            if ($airdrops > 0) {
+                                                $total = ($totaldone / $airdrops) * $no;
+                                                $formattedTotal = number_format($total, 1);
+                                            }
                                         @endphp
+
                                         <div class="fs-3 mb-0 fw-bold text-muted">{{ $formattedTotal }}%</div>
                                     </div>
                                     <div class="col">
