@@ -21,8 +21,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap my-4">
-                                    <table id="example" class="display" style="width:100%">
+                                <div class="table-wrap">
+                                    <table id="example" class="display text-center" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No</th>
@@ -42,7 +42,10 @@
                                                     <th>{{ $no++ }}</th>
                                                     <th>{{ $airdrop->name_airdrops }}</th>
                                                     <th>{{ $airdrop->wallets->wallet_address }}</th>
-                                                    <th>{{ $airdrop->link_airdrops }}</th>
+                                                    <th>
+                                                        <a
+                                                            href={{ $airdrop->link_airdrops }}>{{ $airdrop->link_airdrops }}</a>
+                                                    </th>
                                                     <th>{{ $airdrop->status_airdrops }}</th>
                                                     {{-- <th>{{ $airdrop->postdate_airdrops }}</th> --}}
                                                     {{-- <th>{{ $airdrop->donedate_airdrops }}</th> --}}
