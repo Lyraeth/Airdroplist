@@ -7,20 +7,23 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    Your Wallet Detail :
+            <div class="card shadow h-100" style="border-left-width: 5px; border-left-color:  rgb(137, 201, 137)">
+                <div class="row no-gutters align-items-center">
+                    <div class="col">
+                        <div class="p-6 text-gray-900">
+                            Your Wallet Detail :
+                        </div>
+                        <a class="btn btn-accent mx-6" href="{{ route('wallets.partials.add-wallet') }}">
+                            Add Wallet
+                        </a>
+                    </div>
                 </div>
-
-                <a class="btn btn-accent mx-6" href="{{ route('wallets.partials.add-wallet') }}">
-                    Add Wallet
-                </a>
 
                 <section class="ftco-section mt-4">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap my-4">
+                                <div class="table-wrap table-responsive my-4 mx-2">
                                     <table id="example" class="display" style="width:100%">
                                         <thead>
                                             <tr>
