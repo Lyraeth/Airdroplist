@@ -7,6 +7,7 @@ use App\Models\Airdrop;
 use App\Models\Status;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
@@ -14,15 +15,18 @@ class DashboardController extends Controller
     /**
      * Handle the incoming request.
      */
+
     public function __invoke(): View
     {
-        $airdrops = Airdrop::count();
-        $wallets = Wallet::count();
-        $dataairdrops = Airdrop::all();
-        $pendingtask = Airdrop::whereHas('status', function ($query) {
+        $user = Auth::user();
+        $airdrops = $user->airdrops->count();
+        $wallets = $user->wallets->count();
+        $dataairdrops = $user->airdrops;
+
+        $pendingtask = $user->airdrops()->whereHas('status', function ($query) {
             $query->where('status_name', 'Pending');
         })->count();
-        $totaldone = Airdrop::whereHas('status', function ($query) {
+        $totaldone = $user->airdrops()->whereHas('status', function ($query) {
             $query->where('status_name', 'Done');
         })->count();
 

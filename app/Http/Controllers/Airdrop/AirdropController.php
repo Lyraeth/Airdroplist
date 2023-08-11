@@ -15,7 +15,7 @@ class AirdropController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         $user = Auth::user();
         $airdrops = $user->airdrops; // Mengambil semua airdrops yang terkait dengan user yang sedang login
@@ -27,8 +27,10 @@ class AirdropController extends Controller
     }
     public function add(): View
     {
+        $user = Auth::user();
+        $wallets = $user->wallets;
         return view('airdrops.partials.add-airdrops', [
-            'wallets' => Wallet::all(),
+            'wallets' => $wallets,
             'statuses' => Status::all(),
         ]);
     }

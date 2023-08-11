@@ -15,7 +15,7 @@
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
                             <div class="col mt-4">
-                                <a href="#" class="btn btn-accent">Profile Information</a>
+                                <a href="{{ route('profile.index') }}" class="btn btn-accent">Profile Information</a>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -73,7 +73,7 @@
                                         @php
                                             $no = 100;
                                             $formattedTotal = 0; // Nilai default jika tidak ada data airdrop
-                                            
+
                                             if ($airdrops > 0) {
                                                 $total = ($totaldone / $airdrops) * $no;
                                                 $formattedTotal = number_format($total, 1);
@@ -136,16 +136,19 @@
                                     $no = 1;
                                 @endphp
                                 @foreach ($dataairdrops as $airdrop)
-                                    <tr class="text-center">
-                                        <th>{{ $no++ }}</th>
-                                        <th>{{ $airdrop->name_airdrops }}</th>
-                                        <th>{{ $airdrop->wallets->wallet_address }}</th>
-                                        <th>
-                                            <a target="_blank"
-                                                href={{ $airdrop->link_airdrops }}>{{ $airdrop->link_airdrops }}</a>
-                                        </th>
-                                        <th>{{ $airdrop->status->status_name }}</th>
-                                    </tr>
+                                    @if ($airdrop->status->id == 3)
+                                        <tr class="text-center">
+                                            <th>{{ $no++ }}</th>
+                                            <th>{{ $airdrop->name_airdrops }}</th>
+                                            <th>{{ $airdrop->wallets->wallet_address }}</th>
+                                            <th>
+                                                <a target="_blank"
+                                                    href="{{ $airdrop->link_airdrops }}">{{ $airdrop->link_airdrops }}
+                                                </a>
+                                            </th>
+                                            <th>{{ $airdrop->status->status_name }}</th>
+                                        </tr>
+                                    @endif
                                 @endforeach
                                 {{-- @endcan --}}
                             </tbody>

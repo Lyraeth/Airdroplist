@@ -19,7 +19,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap my-4">
+                                <div class="table-wrap my-4 mx-2">
                                     <table id="example" class="display text-center" style="width:100%">
                                         <thead>
                                             <tr>

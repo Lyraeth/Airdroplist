@@ -20,8 +20,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-wrap my-4">
-                                    <table id="example" class="display" style="width:100%">
+                                <div class="table-wrap my-4 mx-2">
+                                    <table id="example" class="display text-center" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No</th>
@@ -46,27 +46,23 @@
                                                     <th>
                                                         <div class="row">
                                                             <div class="col">
-                                                                @can('update', $wallet)
-                                                                    <a href="{{ route('wallets.partials.edit-wallet', $wallet->id) }}"
-                                                                        type="button" class="btn btn-success btn-sm">
-                                                                        <i class="fas fa-edit"></i>
-                                                                    </a>
-                                                                @endcan
+                                                                <a href="{{ route('wallets.partials.edit-wallet', $wallet->id) }}"
+                                                                    type="button" class="btn btn-success btn-sm">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </a>
                                                             </div>
                                                             <div class="col">
-                                                                @can('delete', $wallet)
-                                                                    <form
-                                                                        action="{{ route('wallet.destroy', $wallet->id) }}"
-                                                                        id="deleteFormWallet{{ $wallet->id }}"
-                                                                        method="post">
-                                                                        @csrf
-                                                                        @method('DELETE')
-                                                                        <button type="button" class="btn btn-error btn-sm"
-                                                                            onclick="confirmDeleteWallet({{ $wallet->id }})">
-                                                                            <i class="fa-solid fa-trash-can"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                @endcan
+                                                                <form
+                                                                    action="{{ route('wallet.destroy', $wallet->id) }}"
+                                                                    id="deleteFormWallet{{ $wallet->id }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-error btn-sm"
+                                                                        onclick="confirmDeleteWallet({{ $wallet->id }})">
+                                                                        <i class="fa-solid fa-trash-can"></i>
+                                                                    </button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </th>
