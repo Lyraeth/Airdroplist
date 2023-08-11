@@ -15,7 +15,7 @@
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.
                             </p>
                             <div class="col mt-4">
-                                <a href="{{ route('profile.index') }}" class="btn btn-accent">Profile Information</a>
+                                <a href="{{ route('profile.index')}}" class="btn btn-accent">Profile Information</a>
                             </div>
                         </div>
                         <div class="col-auto">

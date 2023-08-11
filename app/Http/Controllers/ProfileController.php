@@ -15,8 +15,7 @@ class ProfileController extends Controller
      * Display the user's profile form.
      */
 
-    public function __invoke(): View
-    {
+    public function __invoke(): View{
         return view('profile.index');
     }
     public function edit(Request $request): View
