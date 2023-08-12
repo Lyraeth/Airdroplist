@@ -30,8 +30,10 @@
             </a>
         </div>
 
-        <div class="w-75 mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-            {{ $slot }}
+        <div class="card">
+            <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                {{ $slot }}
+            </div>
         </div>
     </div>
 
