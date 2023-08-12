@@ -119,7 +119,7 @@
                         <div class="fs-4 fw-bold">Your Kindly Reminder :)</div>
                     </div>
                     <hr>
-                    <div class="table-wrap mt-4">
+                    <div class="table-wrap table-responsive mt-4">
                         <table id="example" class="display text-center" style="width:100%">
                             <thead>
                                 <tr class="text-center">
