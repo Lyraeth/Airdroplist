@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    {{-- Bootstrap --}}
+    <link rel="stylesheet" href="{{ asset('assets/Bootstrap-5.3/css/bootstrap.min.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -27,10 +30,73 @@
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class="w-75 mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
     </div>
+
+    {{-- Script Disable Login Button --}}
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('login-button');
+
+        function toggleLoginButton() {
+            if (emailInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
+                loginButton.removeAttribute('disabled');
+            } else {
+                loginButton.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        emailInput.addEventListener('input', toggleLoginButton);
+        passwordInput.addEventListener('input', toggleLoginButton);
+    </script>
+
+    {{-- Script Disbale Register Button --}}
+    <script>
+        const nameInput = document.getElementById('nameReg');
+        const emailRegInput = document.getElementById('emailReg');
+        const passwordRegInput = document.getElementById('passwordReg');
+        const passwordConfirmationInput = document.getElementById('password_confirmation');
+        const registerButton = document.getElementById('register-button');
+
+        function toggleRegisterButton() {
+            if (nameInput.value.trim() !== '' && emailRegInput.value.trim() !== '' &&
+                passwordRegInput.value.trim() !== '' && passwordConfirmationInput.value.trim() !== '') {
+                registerButton.removeAttribute('disabled');
+            } else {
+                registerButton.setAttribute('disabled', 'disabled');
+            }
+        }
+
+        nameInput.addEventListener('input', toggleRegisterButton);
+        emailRegInput.addEventListener('input', toggleRegisterButton);
+        passwordRegInput.addEventListener('input', toggleRegisterButton);
+        passwordConfirmationInput.addEventListener('input', toggleRegisterButton);
+    </script>
+
+    {{-- Script Clock --}}
+    <script>
+        // Fungsi untuk mengupdate jam setiap detik
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            clockElement.textContent = timeString;
+        }
+
+        // Memanggil fungsi updateClock setiap detik
+        setInterval(updateClock, 1000);
+
+        // Memanggil fungsi updateClock secara langsung saat halaman dimuat
+        updateClock();
+    </script>
 </body>
 
 </html>
