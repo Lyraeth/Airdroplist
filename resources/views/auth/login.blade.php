@@ -4,7 +4,7 @@
 
     <div class="container-fluid d-flex justify-content-center align-items-center">
 
-        <div class="row border rounded-5 p-5 bg-white shadow mx-auto">
+        <div class="row rounded-5 p-5 bg-white shadow mx-auto" style="border-left-width: 5px; border-color:aqua;">
 
             {{-- Left Login --}}
             <div class="col-lg-6 login-left d-flex flex-column justify-content-between">

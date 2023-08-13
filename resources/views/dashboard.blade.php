@@ -113,46 +113,48 @@
                     </div>
                 </div>
             </div>
-            <div class="card shadow h-100 py-2 mb-4" style="border-left-width: 5px; border-left-color: yellow">
-                <div class="card-body">
-                    <div class="col mr-2 mb-4">
-                        <div class="fs-4 fw-bold">Your Kindly Reminder :)</div>
-                    </div>
-                    <hr>
-                    <div class="table-wrap mt-4">
-                        <table id="example" class="display text-center" style="width:100%">
-                            <thead>
-                                <tr class="text-center">
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">Airdrop Name</th>
-                                    <th class="text-center">Wallet Address / Email</th>
-                                    <th class="text-center">Link Airdrop</th>
-                                    <th class="text-center">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @can('view', $airdrops) --}}
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($dataairdrops as $airdrop)
-                                    @if ($airdrop->status->id == 3)
-                                        <tr class="text-center">
-                                            <th>{{ $no++ }}</th>
-                                            <th>{{ $airdrop->name_airdrops }}</th>
-                                            <th>{{ $airdrop->wallets->wallet_address }}</th>
-                                            <th>
-                                                <a target="_blank"
-                                                    href="{{ $airdrop->link_airdrops }}">{{ $airdrop->link_airdrops }}
-                                                </a>
-                                            </th>
-                                            <th>{{ $airdrop->status->status_name }}</th>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                                {{-- @endcan --}}
-                            </tbody>
-                        </table>
+            <div class="max-w-7xl mx-auto py-4">
+                <div class="card shadow h-100 py-2 mb-4" style="border-left-width: 5px; border-left-color: yellow">
+                    <div class="card-body">
+                        <div class="col mr-2 mb-4">
+                            <div class="fs-4 fw-bold">Your Kindly Reminder :)</div>
+                        </div>
+                        <hr>
+                        <div class="table-wrap mt-4">
+                            <table id="example" class="display text-center" style="width:100%">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Airdrop Name</th>
+                                        <th class="text-center">Wallet Address / Email</th>
+                                        <th class="text-center">Link Airdrop</th>
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{-- @can('view', $airdrops) --}}
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($dataairdrops as $airdrop)
+                                        @if ($airdrop->status->id == 3)
+                                            <tr class="text-center">
+                                                <th>{{ $no++ }}</th>
+                                                <th>{{ $airdrop->name_airdrops }}</th>
+                                                <th>{{ $airdrop->wallets->wallet_address }}</th>
+                                                <th>
+                                                    <a target="_blank"
+                                                        href="{{ $airdrop->link_airdrops }}">{{ $airdrop->link_airdrops }}
+                                                    </a>
+                                                </th>
+                                                <th>{{ $airdrop->status->status_name }}</th>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                    {{-- @endcan --}}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
