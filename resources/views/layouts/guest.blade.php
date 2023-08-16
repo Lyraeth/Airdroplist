@@ -17,6 +17,7 @@
 
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="{{ asset('assets/Bootstrap-5.3/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/Fontawasome-6.3/css/all.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -24,11 +25,11 @@
 
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-        <div>
+        {{-- <div>
             <a href="/">
                 <img src="{{ asset('logo.png') }}" alt="" width="120" height="120">
             </a>
-        </div>
+        </div> --}}
 
         <div class="card">
             <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -99,6 +100,9 @@
         // Memanggil fungsi updateClock secara langsung saat halaman dimuat
         updateClock();
     </script>
+
+    <link rel="stylesheet" href="{{ asset('assets/Bootstrap-5.3/js/bootstrap.min.js') }}">
+    <link rel="stylesheet" href="{{ asset('assets/Fontawasome-6.3/js/all.js') }}">
 </body>
 
 </html>

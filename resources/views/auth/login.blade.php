@@ -15,12 +15,12 @@
             </div>
 
             {{-- Tengah --}}
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center mt-20">
                 <img src="{{ asset('welcome-bg.png') }}" alt="Logo" width="120" height="120">
             </div>
 
             {{-- Bawah --}}
-            <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+            <div class="flex justify-center mt-20 px-0 sm:items-center sm:justify-between">
                 <div class="text-center text-sm text-gray-800 dark:text-gray-800 sm:text-left">
                     <div class="flex items-center gap-4">
                         @if (Route::has('password.request'))
@@ -76,9 +76,14 @@
                     @endif
                 </div>
 
-                <div class="flex items-center justify-end mt-4">
-                    <button id="login-button" class="btn btn-accent ml-3" disabled>
-                        {{ __('Log in') }}
+                <div class="flex items-center mt-4">
+                    <a href="{{ route('google.login') }}" class="btn btn-primary w-100">
+                        <i class="fa-brands fa-google"></i> Sign in with Google Account
+                    </a>
+                </div>
+                <div class="flex items-center mt-4">
+                    <button id="login-button" class="btn btn-accent w-100" disabled>
+                        <i class="fa-solid fa-right-to-bracket"></i> Log in
                     </button>
                 </div>
             </form>
