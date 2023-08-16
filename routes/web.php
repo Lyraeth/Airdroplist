@@ -6,6 +6,8 @@ use App\Http\Controllers\Airdrop\AirdropEditController;
 use App\Http\Controllers\Airdrop\AirdropStoreController;
 use App\Http\Controllers\Airdrop\AirdropUpdateController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Google\GoogleCallback;
+use App\Http\Controllers\Google\GoogleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Wallet\WalletController;
 use App\Http\Controllers\Wallet\WalletDeleteController;
@@ -56,5 +58,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Google
+Route::get('auth/google', GoogleController::class)->name('google.login');
+Route::get('auth/google/callback', GoogleCallback::class)->name('google.callback');
 
 require __DIR__ . '/auth.php';
